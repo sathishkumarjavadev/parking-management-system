@@ -1,0 +1,181 @@
+/* === MAIN CONTAINER === */
+.admin-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  padding: 40px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* === HEADER === */
+.admin-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 20px;
+}
+
+.admin-header h1 {
+  margin: 0 0 10px;
+  font-size: 42px;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.admin-header p {
+  margin: 0;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* === STATS GRID === */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.stat-box {
+  background: white;
+  padding: 35px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.stat-box:hover {
+  transform: translateY(-8px);
+}
+
+.stat-box h3 {
+  margin: 0 0 15px;
+  color: #95a5a6;
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.number {
+  margin: 0;
+  font-size: 48px;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+/* === TABLE CARD === */
+.table-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.table-top {
+  padding: 25px 30px;
+  background: #f8f9fa;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.table-top h2 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.search-input {
+  padding: 12px 18px;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  font-size: 16px;
+  width: 300px;
+  max-width: 100%;
+  transition: border 0.3s;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #2a5298;
+}
+
+/* === TABLE === */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background: #2c3e50;
+  color: white;
+  padding: 18px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+td {
+  padding: 18px;
+  border-bottom: 1px solid #eee;
+  font-size: 15px;
+}
+
+td strong {
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+/* === NO DATA MESSAGE === */
+.no-data {
+  text-align: center;
+  padding: 50px;
+  color: #95a5a6;
+  font-style: italic;
+  font-size: 18px;
+}
+
+/* === DELETE BUTTON === */
+.delete-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.delete-btn:hover {
+  background: #c0392b;
+  transform: translateY(-2px);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .admin-header h1 {
+    font-size: 32px;
+  }
+  .table-top {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .search-input {
+    width: 100%;
+  }
+}

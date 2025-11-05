@@ -1,0 +1,127 @@
+.welcome-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle background pattern */
+.welcome-container::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="50" height="50" fill="%23ffffff08"/><rect x="50" y="50" width="50" height="50" fill="%23ffffff08"/></svg>');
+  opacity: 0.15;
+  z-index: 0;
+}
+
+.welcome-card {
+  background: rgba(255, 255, 255, 0.97);
+  padding: 70px 60px;
+  border-radius: 32px;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  max-width: 700px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.welcome-card h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+  color: #1e3c72;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.welcome-card h2 {
+  margin: 0 0 16px;
+  font-size: 42px;
+  color: #2a5298;
+  font-weight: 800;
+  background: linear-gradient(90deg, #1e3c72, #2a5298);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.welcome-card p {
+  margin: 0 0 50px;
+  font-size: 18px;
+  color: #555;
+  font-weight: 500;
+}
+
+/* === SAME SIZE BUTTONS === */
+.btn-container {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.welcome-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 260px;
+  height: 70px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 18px;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(135deg, #2c5282, #1e40af);
+  box-shadow: 0 10px 25px rgba(30, 64, 175, 0.3);
+  text-decoration: none;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.welcome-btn:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(30, 64, 175, 0.4);
+  background: linear-gradient(135deg, #1e40af, #2c5282);
+}
+
+.btn-icon {
+  font-size: 24px;
+}
+
+.welcome-btn span {
+  margin-top: 2px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .btn-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .welcome-btn {
+    width: 280px;
+  }
+}
+
+.footer-text {
+  margin-top: 50px;
+  font-size: 14px;
+  color: #888;
+}
+
+.footer-text strong {
+  color: #2a5298;
+}
