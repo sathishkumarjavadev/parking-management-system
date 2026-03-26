@@ -1,117 +1,60 @@
-/* FULL DESKTOP BACKGROUND */
-.login-container {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #0f3460 0%, #1a5fb4 100%);
+.login-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #f0f4f8, #d9e2ec);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* WIDE CENTERED CARD */
 .login-card {
-  background: white;
-  padding: 60px 100px;
-  border-radius: 28px;
-  box-shadow: 0 35px 70px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
   width: 100%;
-  max-width: 800px;
+  max-width: 360px;
   text-align: center;
-  animation: slideUp 0.8s ease-out;
 }
 
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Title & Subtitle */
-.login-card h1 {
-  margin: 0 0 12px;
+.login-card h2 {
+  margin-bottom: 16px;
   color: #0f3460;
-  font-size: 36px;
-  font-weight: 700;
 }
 
-.login-card > p {
-  margin: 0 0 45px;
-  color: #555;
-  font-size: 18px;
-}
-
-/* Input Group */
-.input-group {
-  margin-bottom: 30px;
+.form-field {
+  margin-bottom: 12px;
   text-align: left;
 }
 
-.input-group label {
+.form-field label {
+  font-weight: 600;
+  margin-bottom: 4px;
   display: block;
-  margin-bottom: 10px;
-  color: #222;
-  font-weight: 600;
-  font-size: 16px;
-}
-
-.input-group input {
-  width: 100%;
-  padding: 18px 22px;
-  border: 2px solid #e0e0e0;
-  border-radius: 16px;
-  font-size: 18px;
-  background: #f9f9f9;
-  transition: all 0.3s;
-}
-
-.input-group input:focus {
-  outline: none;
-  border-color: #1a5fb4;
-  background: white;
-  box-shadow: 0 0 0 5px rgba(26, 95, 180, 0.15);
-}
-
-/* Login Button */
-.login-btn {
-  width: 100%;
-  padding: 18px;
-  background: #1a5fb4;
-  color: white;
-  border: none;
-  border-radius: 16px;
-  font-size: 20px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s;
-  margin-top: 15px;
-}
-
-.login-btn:hover {
-  background: #0f3460;
-  transform: translateY(-3px);
-  box-shadow: 0 15px 35px rgba(26, 95, 180, 0.35);
-}
-
-/* Demo Box */
-.demo-box {
-  margin-top: 40px;
-  padding: 22px;
-  background: #ebf3ff;
-  border-radius: 16px;
-  border: 2px dashed #1a5fb4;
-  font-size: 16px;
   color: #0f3460;
 }
 
-.demo-box p {
-  margin: 0;
-  font-weight: 500;
+.form-field input {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
 }
 
-/* RESPONSIVE - BUT STILL DESKTOP ON LARGE SCREENS */
-@media (max-width: 768px) {
-  .login-card {
-    padding: 50px 40px;
-    max-width: 90%;
-  }
+button {
+  width: 100%;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 12px;
+  background-color: #0f3460;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #1a5fb4;
 }

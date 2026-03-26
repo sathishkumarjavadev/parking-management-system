@@ -1,30 +1,32 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './AdminLogin.css';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./AdminLogin.css";
 
 const AdminLogin = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (email === 'admin@park.com' && password === 'admin123') {
-      alert('Admin Login Successful!');
-      navigate('/admin/dashboard');
+
+    // Demo login validation
+    if (email === "admin@park.com" && password === "admin123") {
+      alert("Login Successful!");
+      navigate("/admin/dashboard");
     } else {
-      alert('Invalid credentials');
+      alert("Invalid email or password");
     }
   };
 
   return (
-    <div className="admin-login-container">
-      <div className="login-card">
-        <h1>Admin Login</h1>
-        <p>Owner Access Only</p>
+    <div className="admin-login-wrapper">
+      <div className="admin-card">
+        <h2 className="title">Admin Login</h2>
+        <p className="subtitle">Secure Access Only</p>
 
-        <form onSubmit={handleSubmit} className="login-form">
-          <div className="input-group">
+        <form onSubmit={handleSubmit} className="admin-form">
+          <div className="form-field">
             <label>Email</label>
             <input
               type="email"
@@ -35,7 +37,7 @@ const AdminLogin = () => {
             />
           </div>
 
-          <div className="input-group">
+          <div className="form-field">
             <label>Password</label>
             <input
               type="password"
@@ -46,13 +48,12 @@ const AdminLogin = () => {
             />
           </div>
 
-          <button type="submit" className="submit-btn">
+          <button type="submit" className="login-btn">
             Login
           </button>
         </form>
 
-        {/* === DEMO CREDENTIALS BOX === */}
-        <div className="demo-box">
+        <div className="demo-credentials">
           <p>
             <strong>Demo:</strong> admin@park.com / admin123
           </p>

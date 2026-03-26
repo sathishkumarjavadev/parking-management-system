@@ -1,107 +1,108 @@
-.admin-login-container {
+/* Wrapper */
+.admin-login-wrapper {
   min-height: 100vh;
-  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+  animation: bgGradient 10s ease infinite;
 }
 
-.login-card {
-  background: white;
-  padding: 60px 80px;
-  border-radius: 28px;
-  box-shadow: 0 35px 70px rgba(0, 0, 0, 0.2);
+@keyframes bgGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Card */
+.admin-card {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
   width: 100%;
-  max-width: 550px;
+  max-width: 400px;
   text-align: center;
-  animation: fadeIn 0.8s ease-out;
+  animation: cardEntrance 1s ease;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
+@keyframes cardEntrance {
+  0% { transform: translateY(-50px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
 }
 
-.login-card h1 {
-  margin: 0 0 12px;
-  color: #1e3c72;
-  font-size: 36px;
+/* Title */
+.title {
+  font-size: 1.8rem;
   font-weight: 700;
+  color: #0072ff;
+  margin-bottom: 6px;
 }
 
-.login-card p {
-  margin: 0 0 40px;
+.subtitle {
+  font-size: 0.95rem;
   color: #555;
-  font-size: 18px;
+  margin-bottom: 24px;
+  opacity: 0.85;
 }
 
-.login-form {
+/* Form */
+.admin-form {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 16px;
 }
 
-.input-group {
+.form-field {
+  display: flex;
+  flex-direction: column;
   text-align: left;
 }
 
-.input-group label {
-  display: block;
-  margin-bottom: 10px;
-  color: #222;
+.form-field label {
   font-weight: 600;
-  font-size: 16px;
+  margin-bottom: 6px;
+  color: #0072ff;
 }
 
-.input-group input {
-  width: 100%;
-  padding: 18px 22px;
-  border: 2px solid #e0e0e0;
-  border-radius: 16px;
-  font-size: 18px;
-  background: #f9f9f9;
-  transition: all 0.3s;
-}
-
-.input-group input:focus {
+.form-field input {
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  font-size: 15px;
   outline: none;
-  border-color: #2a5298;
-  background: white;
-  box-shadow: 0 0 0 5px rgba(42, 82, 152, 0.15);
+  transition: all 0.3s ease;
 }
 
-.submit-btn {
-  padding: 18px;
+.form-field input:focus {
+  border-color: #00c6ff;
+  box-shadow: 0 0 10px rgba(0,198,255,0.5);
+}
+
+/* Button */
+.login-btn {
+  padding: 12px;
   border: none;
-  border-radius: 16px;
-  background: linear-gradient(135deg, #2c5282, #1e40af);
-  color: white;
-  font-size: 18px;
-  font-weight: 700;
+  border-radius: 12px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
   cursor: pointer;
-  transition: all 0.3s;
-  margin-top: 10px;
+  transition: all 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 5px 15px rgba(0,198,255,0.4);
 }
 
-.submit-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 30px rgba(30, 64, 175, 0.3);
+.login-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0,198,255,0.6);
 }
 
-/* === DEMO CREDENTIALS BOX === */
-.demo-box {
-  margin-top: 40px;
-  padding: 20px;
-  background: #ebf3ff;
-  border-radius: 16px;
-  border: 2px dashed #2a5298;
-  font-size: 16px;
-  color: #1e3c72;
-}
-
-.demo-box p {
-  margin: 0;
-  font-weight: 500;
+/* Demo Credentials */
+.demo-credentials {
+  margin-top: 18px;
+  font-size: 0.9rem;
+  color: #555;
+  opacity: 0.85;
 }

@@ -1,136 +1,104 @@
-.dashboard-container {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #0f3460 0%, #1a5fb4 100%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px;
+.incharge-wrapper {
+  padding: 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom right, #f0f4f8, #d9e2ec);
+  min-height: 100vh;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.dashboard-header h1 {
+  color: #0f3460;
+}
+
+.dashboard-header button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: #0f3460;
+  color: #fff;
+  cursor: pointer;
 }
 
 .entry-card {
-  background: white;
-  padding: 60px 90px;
-  border-radius: 28px;
-  box-shadow: 0 35px 70px rgba(0, 0, 0, 0.2);
-  width: 100%;
-  max-width: 750px;
-  text-align: center;
-  animation: fadeIn 0.8s ease-out;
+  background: #fff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-.entry-card h1 {
-  margin: 0 0 12px;
+.entry-card h2 {
   color: #0f3460;
-  font-size: 36px;
-  font-weight: 700;
+  margin-bottom: 12px;
 }
 
-.entry-card > p {
-  margin: 0 0 45px;
-  color: #555;
-  font-size: 18px;
-}
-
-.entry-form {
+.entry-card form {
   display: flex;
-  flex-direction: column;
-  gap: 25px;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
-.input-group {
-  text-align: left;
+.entry-card input {
+  flex: 1 1 200px;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
 }
 
-.input-group label {
-  display: block;
-  margin-bottom: 10px;
-  color: #222;
-  font-weight: 600;
-  font-size: 16px;
-}
-
-.input-group input {
-  width: 100%;
-  padding: 18px 22px;
-  border: 2px solid #e0e0e0;
-  border-radius: 16px;
-  font-size: 18px;
-  background: #f9f9f9;
-  transition: all 0.3s;
-}
-
-.input-group input:focus {
-  outline: none;
-  border-color: #1a5fb4;
-  background: white;
-  box-shadow: 0 0 0 5px rgba(26, 95, 180, 0.15);
-}
-
-/* === REMOVE NUMBER INPUT ARROWS (ALL BROWSERS) === */
-/* Standard way (Chrome, Safari, Edge) */
-.price-input,
-input[type="number"] {
-  appearance: textfield;
-}
-
-/* WebKit: Remove arrows */
-.price-input::-webkit-outer-spin-button,
-.price-input::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox fallback using @supports */
-@supports (-moz-appearance: none) {
-  .price-input,
-  input[type="number"] {
-    -moz-appearance: textfield;
-  }
-}
-/* === END ARROW REMOVAL === */
-
-.btn-group {
-  display: flex;
-  gap: 20px;
-  margin-top: 20px;
-}
-
-.submit-btn, .list-btn {
-  flex: 1;
-  padding: 18px;
+.entry-card button {
+  padding: 8px 16px;
   border: none;
-  border-radius: 16px;
-  font-size: 18px;
-  font-weight: 600;
+  border-radius: 12px;
+  background-color: #0f3460;
+  color: #fff;
   cursor: pointer;
-  transition: all 0.3s;
 }
 
-.submit-btn {
-  background: #1a5fb4;
-  color: white;
+.vehicle-list table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
 }
 
-.submit-btn:hover {
-  background: #0f3460;
-  transform: translateY(-3px);
+.vehicle-list th, .vehicle-list td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
 }
 
-.list-btn {
-  background: #f0f7ff;
-  color: #1a5fb4;
-  border: 2px solid #1a5fb4;
+.vehicle-list th {
+  background-color: #0f3460;
+  color: #fff;
 }
 
-.list-btn:hover {
-  background: #1a5fb4;
-  color: white;
+.status-in {
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.status-out {
+  color: #d32f2f;
+  font-weight: 600;
+}
+
+.vehicle-list button {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: none;
+  background-color: #1976d2;
+  color: #fff;
+  cursor: pointer;
+}
+
+.vehicle-list button:hover {
+  background-color: #0d47a1;
 }

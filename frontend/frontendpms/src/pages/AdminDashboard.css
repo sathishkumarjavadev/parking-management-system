@@ -1,181 +1,228 @@
-/* === MAIN CONTAINER === */
-.admin-container {
+/* ================= Wrapper ================= */
+.admin-dashboard-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-  padding: 40px 20px;
+  padding: 24px;
+  background: linear-gradient(to bottom right, #f0f4f8, #d9e2ec);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #0f3460;
 }
 
-/* === HEADER === */
-.admin-header {
-  text-align: center;
-  margin-bottom: 40px;
-  padding: 20px;
-}
-
-.admin-header h1 {
-  margin: 0 0 10px;
-  font-size: 42px;
-  font-weight: 700;
-  color: white;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.admin-header p {
-  margin: 0;
-  font-size: 18px;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-/* === STATS GRID === */
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  margin-bottom: 40px;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.stat-box {
-  background: white;
-  padding: 35px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.stat-box:hover {
-  transform: translateY(-8px);
-}
-
-.stat-box h3 {
-  margin: 0 0 15px;
-  color: #95a5a6;
-  font-size: 18px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.number {
-  margin: 0;
-  font-size: 48px;
-  font-weight: 700;
-  color: #2c3e50;
-}
-
-/* === TABLE CARD === */
-.table-card {
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  overflow: hidden;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.table-top {
-  padding: 25px 30px;
-  background: #f8f9fa;
+/* ================= Header ================= */
+.dashboard-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 15px;
+  margin-bottom: 24px;
 }
 
-.table-top h2 {
-  margin: 0;
-  color: #2c3e50;
-  font-size: 26px;
-  font-weight: 600;
+.dashboard-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
 }
 
-.search-input {
-  padding: 12px 18px;
-  border: 2px solid #ddd;
+.dashboard-header button {
+  padding: 10px 18px;
+  border: none;
   border-radius: 12px;
-  font-size: 16px;
-  width: 300px;
-  max-width: 100%;
-  transition: border 0.3s;
+  background-color: #0f3460;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
-.search-input:focus {
+.dashboard-header button:hover {
+  background-color: #1a5fb4;
+  transform: scale(1.05);
+}
+
+/* ================= Search / Filter ================= */
+.search-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.search-filter input,
+.search-filter select {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
   outline: none;
-  border-color: #2a5298;
+  font-size: 14px;
+  transition: all 0.2s ease;
 }
 
-/* === TABLE === */
-.table-wrapper {
+.search-filter input:focus,
+.search-filter select:focus {
+  border-color: #1a5fb4;
+  box-shadow: 0 0 6px rgba(26, 95, 180, 0.3);
+}
+
+/* ================= Table ================= */
+.vehicle-table-container {
   overflow-x: auto;
 }
 
-table {
+.vehicle-table-container table {
   width: 100%;
   border-collapse: collapse;
+  min-width: 900px;
 }
 
-th {
-  background: #2c3e50;
-  color: white;
-  padding: 18px;
-  text-align: left;
-  font-weight: 600;
-  font-size: 15px;
-}
-
-td {
-  padding: 18px;
-  border-bottom: 1px solid #eee;
-  font-size: 15px;
-}
-
-td strong {
-  color: #2c3e50;
-  font-weight: 600;
-}
-
-/* === NO DATA MESSAGE === */
-.no-data {
+.vehicle-table-container th,
+.vehicle-table-container td {
+  padding: 12px 16px;
   text-align: center;
-  padding: 50px;
-  color: #95a5a6;
-  font-style: italic;
-  font-size: 18px;
-}
-
-/* === DELETE BUTTON === */
-.delete-btn {
-  background: #e74c3c;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 8px;
-  cursor: pointer;
+  border-bottom: 1px solid #e0e0e0;
   font-size: 14px;
-  font-weight: 500;
-  transition: all 0.3s;
 }
 
-.delete-btn:hover {
-  background: #c0392b;
-  transform: translateY(-2px);
+.vehicle-table-container th {
+  background-color: #0f3460;
+  color: #fff;
+  font-weight: 600;
 }
 
-/* === RESPONSIVE === */
+.vehicle-table-container tbody tr:hover {
+  background-color: #f1f5f9;
+}
+
+/* ================= Status ================= */
+.status-in {
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.status-out {
+  color: #d32f2f;
+  font-weight: 600;
+}
+
+/* ================= Live Timer ================= */
+.live-timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.live-timer small {
+  margin-top: 2px;
+  color: #0f3460;
+}
+
+/* ================= Buttons ================= */
+.vehicle-table-container button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 2px;
+  transition: all 0.3s ease;
+}
+
+.vehicle-table-container button:hover {
+  opacity: 0.8;
+}
+
+.vehicle-table-container button:first-child {
+  background-color: #1976d2;
+  color: #fff;
+}
+
+.vehicle-table-container button:last-child {
+  background-color: #d32f2f;
+  color: #fff;
+}
+
+/* ================= Modal ================= */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: #fff;
+  padding: 24px 28px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.modal h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #0f3460;
+  margin-bottom: 16px;
+}
+
+.modal input {
+  width: 100%;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.modal input:focus {
+  border-color: #1a5fb4;
+  box-shadow: 0 0 6px rgba(26, 95, 180, 0.3);
+}
+
+.modal button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 6px 0;
+  width: 48%;
+}
+
+.modal button:first-child {
+  background-color: #0f3460;
+  color: #fff;
+}
+
+.modal button:first-child:hover {
+  background-color: #1a5fb4;
+}
+
+.modal button:last-child {
+  background-color: #d32f2f;
+  color: #fff;
+}
+
+.modal button:last-child:hover {
+  background-color: #b71c1c;
+}
+
+/* ================= Responsive ================= */
 @media (max-width: 768px) {
-  .admin-header h1 {
-    font-size: 32px;
+  .vehicle-table-container table {
+    min-width: 600px;
   }
-  .table-top {
+
+  .search-filter {
     flex-direction: column;
-    align-items: stretch;
   }
-  .search-input {
+
+  .modal button {
     width: 100%;
   }
 }

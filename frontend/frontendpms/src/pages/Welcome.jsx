@@ -7,7 +7,7 @@ const Welcome = () => {
     <div className="welcome-container">
       <div className="welcome-card">
         <h1>Welcome to</h1>
-        <h2>Parking Management System</h2>
+        <h2>Smart Parking System </h2>
         <p>Secure, Fast & Smart Parking Solution</p>
 
         <div className="btn-container">
@@ -23,7 +23,7 @@ const Welcome = () => {
         </div>
 
         <div className="footer-text">
-          Developed by <strong>Rapid Tortoise</strong> © 2025
+          Developed by <strong>&#128400;MUKESH MCA</strong> © JAN - JUL 2026
         </div>
       </div>
     </div>
