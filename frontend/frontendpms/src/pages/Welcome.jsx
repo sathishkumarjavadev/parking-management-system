@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
-import { FaUserShield, FaCar } from 'react-icons/fa';
-import './Welcome.css';
+import { Link } from "react-router-dom";
+import { FaUserShield, FaCar } from "react-icons/fa";
+import "./Welcome.css";
 
 const Welcome = () => {
   return (
@@ -23,7 +23,12 @@ const Welcome = () => {
         </div>
 
         <div className="footer-text">
-          Developed by <strong>&#128400;MUKESH MCA</strong> © JAN - JUL 2026
+          Developed by <strong style={{ color: "red" }}>SATHISH_MCA</strong>{" "}
+          <p>
+            <b>
+              <i>© OCT 2025 - MAR 2026</i>
+            </b>
+          </p>
         </div>
       </div>
     </div>
