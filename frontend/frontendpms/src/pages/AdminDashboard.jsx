@@ -31,7 +31,7 @@ const AdminDashboard = () => {
       const res = await axios.get(API_URL);
       setVehicles(res.data);
     } catch (err) {
-      alert("Failed to fetch vehicles"+err);
+      alert("Failed to fetch vehicles" + err);
     }
   };
 
@@ -88,7 +88,9 @@ const AdminDashboard = () => {
         entryTime: formData.entryTime
           ? new Date(formData.entryTime).toISOString()
           : null,
-        outTime: formData.outTime ? new Date(formData.outTime).toISOString() : null,
+        outTime: formData.outTime
+          ? new Date(formData.outTime).toISOString()
+          : null,
       });
       loadVehicles();
       closeModal();
@@ -112,7 +114,9 @@ const AdminDashboard = () => {
     <div className="admin-dashboard-container">
       <div className="dashboard-header">
         <h1>Admin Dashboard</h1>
-        <button onClick={() => navigate("/")}>Logout</button>
+        <button onClick={() => navigate("/")} style={{ background: "red" }}>
+          Logout
+        </button>
       </div>
 
       {/* SEARCH */}
@@ -144,7 +148,10 @@ const AdminDashboard = () => {
           <tbody>
             {filteredVehicles.map((v) => {
               const liveSeconds = timers[v.id] || 0;
-              const liveHours = v.status === "IN" ? Math.ceil(liveSeconds / 3600) : v.totalHours;
+              const liveHours =
+                v.status === "IN"
+                  ? Math.ceil(liveSeconds / 3600)
+                  : v.totalHours;
               const price = v.status === "IN" ? liveHours * 20 : v.price;
 
               return (
@@ -152,7 +159,9 @@ const AdminDashboard = () => {
                   <td>{v.id}</td>
                   <td>{v.vehicleNo}</td>
                   <td>{v.phone}</td>
-                  <td className={v.status === "IN" ? "status-in" : "status-out"}>
+                  <td
+                    className={v.status === "IN" ? "status-in" : "status-out"}
+                  >
                     {v.status}
                   </td>
                   <td>{formatDateTime(v.entryTime)}</td>
@@ -180,21 +189,29 @@ const AdminDashboard = () => {
             <h2>Edit Vehicle</h2>
             <input
               value={formData.vehicleNo}
-              onChange={(e) => setFormData({ ...formData, vehicleNo: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, vehicleNo: e.target.value })
+              }
             />
             <input
               value={formData.phone}
-              onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, phone: e.target.value })
+              }
             />
             <input
               type="datetime-local"
               value={formData.entryTime}
-              onChange={(e) => setFormData({ ...formData, entryTime: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, entryTime: e.target.value })
+              }
             />
             <input
               type="datetime-local"
               value={formData.outTime}
-              onChange={(e) => setFormData({ ...formData, outTime: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, outTime: e.target.value })
+              }
             />
             <button onClick={handleUpdateVehicle}>Update</button>
             <button onClick={closeModal}>Cancel</button>

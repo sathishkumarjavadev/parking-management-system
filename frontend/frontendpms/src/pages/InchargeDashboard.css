@@ -1,6 +1,6 @@
 .incharge-wrapper {
   padding: 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(to bottom right, #f0f4f8, #d9e2ec);
   min-height: 100vh;
 }
@@ -10,6 +10,8 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+  padding-left: 80%;
+  width: 100%;
 }
 
 .dashboard-header h1 {
@@ -29,7 +31,7 @@
   background: #fff;
   padding: 16px;
   border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
 }
 
@@ -66,10 +68,11 @@
   background: #fff;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
-.vehicle-list th, .vehicle-list td {
+.vehicle-list th,
+.vehicle-list td {
   padding: 12px;
   text-align: center;
   border-bottom: 1px solid #e0e0e0;

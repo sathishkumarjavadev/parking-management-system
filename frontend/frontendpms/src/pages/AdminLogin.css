@@ -5,15 +5,21 @@
   justify-content: center;
   align-items: center;
   background: linear-gradient(135deg, #00c6ff, #0072ff);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   padding: 20px;
   animation: bgGradient 10s ease infinite;
 }
 
 @keyframes bgGradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* Card */
@@ -21,7 +27,7 @@
   background: #fff;
   padding: 40px 30px;
   border-radius: 20px;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
   width: 100%;
   max-width: 400px;
   text-align: center;
@@ -29,8 +35,14 @@
 }
 
 @keyframes cardEntrance {
-  0% { transform: translateY(-50px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 /* Title */
@@ -78,7 +90,7 @@
 
 .form-field input:focus {
   border-color: #00c6ff;
-  box-shadow: 0 0 10px rgba(0,198,255,0.5);
+  box-shadow: 0 0 10px rgba(0, 198, 255, 0.5);
 }
 
 /* Button */
@@ -90,13 +102,16 @@
   color: #fff;
   background: linear-gradient(135deg, #00c6ff, #0072ff);
   cursor: pointer;
-  transition: all 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 5px 15px rgba(0,198,255,0.4);
+  transition:
+    all 0.3s ease,
+    transform 0.2s ease;
+  box-shadow: 0 5px 15px rgba(0, 198, 255, 0.4);
 }
 
 .login-btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 25px rgba(0,198,255,0.6);
+  box-shadow: 0 8px 25px rgba(0, 198, 255, 0.6);
+  color: red;
 }
 
 /* Demo Credentials */

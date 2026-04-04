@@ -62,7 +62,7 @@ const InchargeDashboard = () => {
     if (!vehicleNo || !phone) return alert("Fill all fields");
 
     const existing = vehicles.find(
-      (v) => v.vehicleNo === vehicleNo && v.status === "IN"
+      (v) => v.vehicleNo === vehicleNo && v.status === "IN",
     );
     if (existing) return alert("Vehicle already IN");
 
@@ -102,7 +102,9 @@ const InchargeDashboard = () => {
     <div className="incharge-wrapper">
       <div className="dashboard-header">
         <h1>Incharge Dashboard</h1>
-        <button onClick={() => navigate("/")}>Logout</button>
+        <button onClick={() => navigate("/")} style={{ background: "red" }}>
+          Logout
+        </button>
       </div>
 
       {/* Vehicle Entry Form */}
@@ -150,25 +152,35 @@ const InchargeDashboard = () => {
           <tbody>
             {vehicles.map((v) => {
               const liveSec = timers[v.id] || 0;
-              const livePrice = v.status === "IN" ? calculatePrice(liveSec) : v.price;
-              const totalHours = v.status === "IN" ? Math.ceil(liveSec / 3600) : v.totalHours;
+              const livePrice =
+                v.status === "IN" ? calculatePrice(liveSec) : v.price;
+              const totalHours =
+                v.status === "IN" ? Math.ceil(liveSec / 3600) : v.totalHours;
 
               return (
                 <tr key={v.id}>
                   <td>{v.id}</td>
                   <td>{v.vehicleNo}</td>
                   <td>{v.phone}</td>
-                  <td className={v.status === "IN" ? "status-in" : "status-out"}>
+                  <td
+                    className={v.status === "IN" ? "status-in" : "status-out"}
+                  >
                     {v.status}
                   </td>
-                  <td>{v.entryTime ? new Date(v.entryTime).toLocaleString() : "-"}</td>
-                  <td>{v.outTime ? new Date(v.outTime).toLocaleString() : "-"}</td>
+                  <td>
+                    {v.entryTime ? new Date(v.entryTime).toLocaleString() : "-"}
+                  </td>
+                  <td>
+                    {v.outTime ? new Date(v.outTime).toLocaleString() : "-"}
+                  </td>
                   <td>{totalHours}</td>
                   <td>{v.status === "IN" ? formatDuration(liveSec) : "-"}</td>
                   <td>₹{livePrice}</td>
                   <td>
                     {v.status === "IN" && (
-                      <button onClick={() => handleMarkOut(v.id)}>Mark OUT</button>
+                      <button onClick={() => handleMarkOut(v.id)}>
+                        Mark OUT
+                      </button>
                     )}
                   </td>
                 </tr>
