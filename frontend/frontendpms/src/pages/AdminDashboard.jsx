@@ -130,56 +130,60 @@ const AdminDashboard = () => {
 
       {/* TABLE */}
       <div className="vehicle-table-container">
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Vehicle</th>
-              <th>Phone</th>
-              <th>Status</th>
-              <th>Entry</th>
-              <th>Out</th>
-              <th>Total Hours</th>
-              <th>Live Timer</th>
-              <th>Price</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredVehicles.map((v) => {
-              const liveSeconds = timers[v.id] || 0;
-              const liveHours =
-                v.status === "IN"
-                  ? Math.ceil(liveSeconds / 3600)
-                  : v.totalHours;
-              const price = v.status === "IN" ? liveHours * 20 : v.price;
+        <div className="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Vehicle</th>
+                <th>Phone</th>
+                <th>Status</th>
+                <th>Entry</th>
+                <th>Out</th>
+                <th>Total Hours</th>
+                <th>Live Timer</th>
+                <th>Price</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredVehicles.map((v) => {
+                const liveSeconds = timers[v.id] || 0;
+                const liveHours =
+                  v.status === "IN"
+                    ? Math.ceil(liveSeconds / 3600)
+                    : v.totalHours;
+                const price = v.status === "IN" ? liveHours * 20 : v.price;
 
-              return (
-                <tr key={v.id}>
-                  <td>{v.id}</td>
-                  <td>{v.vehicleNo}</td>
-                  <td>{v.phone}</td>
-                  <td
-                    className={v.status === "IN" ? "status-in" : "status-out"}
-                  >
-                    {v.status}
-                  </td>
-                  <td>{formatDateTime(v.entryTime)}</td>
-                  <td>{formatDateTime(v.outTime)}</td>
-                  <td>{liveHours}</td>
-                  <td>
-                    {v.status === "IN" ? formatDuration(liveSeconds) : "-"}
-                  </td>
-                  <td>₹{price}</td>
-                  <td>
-                    <button onClick={() => openEditModal(v)}>Edit</button>
-                    <button onClick={() => deleteVehicle(v.id)}>Delete</button>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+                return (
+                  <tr key={v.id}>
+                    <td>{v.id}</td>
+                    <td>{v.vehicleNo}</td>
+                    <td>{v.phone}</td>
+                    <td
+                      className={v.status === "IN" ? "status-in" : "status-out"}
+                    >
+                      {v.status}
+                    </td>
+                    <td>{formatDateTime(v.entryTime)}</td>
+                    <td>{formatDateTime(v.outTime)}</td>
+                    <td>{liveHours}</td>
+                    <td>
+                      {v.status === "IN" ? formatDuration(liveSeconds) : "-"}
+                    </td>
+                    <td>₹{price}</td>
+                    <td>
+                      <button onClick={() => openEditModal(v)}>Edit</button>
+                      <button onClick={() => deleteVehicle(v.id)}>
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       </div>
 
       {/* EDIT MODAL */}

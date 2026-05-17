@@ -1,15 +1,61 @@
-/* ================= Global Styles ================= */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* ================= ROOT VARIABLES ================= */
+
+:root {
+  --bg-primary: #0f172a;
+  --bg-secondary: #111827;
+
+  --card-bg: rgba(255, 255, 255, 0.08);
+
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+
+  --accent: #06b6d4;
+  --accent-secondary: #2563eb;
+
+  --success: #22c55e;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+
+  --border-color: rgba(255, 255, 255, 0.1);
+
+  --shadow:
+    0 10px 40px rgba(0, 0, 0, 0.35), inset 0 0 10px rgba(255, 255, 255, 0.04);
+
+  --radius-xl: 28px;
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+
+  --transition: all 0.3s ease;
+}
+
+/* ================= GLOBAL RESET ================= */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to bottom right, #f0f4f8, #d9e2ec);
-  color: #0f3460;
   min-height: 100vh;
+
+  font-family: "Poppins", sans-serif;
+
+  background:
+    radial-gradient(circle at top left, #1e3a8a, transparent 30%),
+    radial-gradient(circle at bottom right, #06b6d4, transparent 30%),
+    linear-gradient(135deg, #0f172a, #111827);
+
+  color: var(--text-primary);
+
+  overflow-x: hidden;
 }
 
 a {
@@ -17,40 +63,728 @@ a {
   color: inherit;
 }
 
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
 button {
   cursor: pointer;
-  outline: none;
   border: none;
 }
 
-input, select, textarea {
-  font-family: inherit;
+/* ================= SCROLLBAR ================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* ================= APP CONTAINER ================= */
+
+.app-container {
+  min-height: 100vh;
+
+  width: 100%;
+
+  padding: 24px;
+
+  position: relative;
+}
+
+/* ================= COMMON GLASS CARD ================= */
+
+.glass-card,
+.list-card,
+.admin-card,
+.login-card,
+.entry-card,
+.welcome-card {
+  background: var(--card-bg);
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border: 1px solid var(--border-color);
+
+  border-radius: var(--radius-xl);
+
+  box-shadow: var(--shadow);
+}
+
+/* ================= COMMON BUTTON ================= */
+
+.primary-btn,
+.login-btn,
+.add-btn,
+.update-btn,
+.edit-btn,
+.status-btn,
+.dashboard-header button,
+.entry-card button,
+.vehicle-list button {
+  position: relative;
+
+  padding: 12px 20px;
+
+  border-radius: var(--radius-md);
+
+  background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+
+  color: white;
+
+  font-weight: 600;
+
+  overflow: hidden;
+
+  transition: var(--transition);
+}
+
+.primary-btn::before,
+.login-btn::before,
+.add-btn::before,
+.update-btn::before,
+.edit-btn::before,
+.status-btn::before,
+.dashboard-header button::before,
+.entry-card button::before,
+.vehicle-list button::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -100%;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(255, 255, 255, 0.2);
+
+  transform: skewX(-25deg);
+
+  transition: 0.6s;
+}
+
+.primary-btn:hover::before,
+.login-btn:hover::before,
+.add-btn:hover::before,
+.update-btn:hover::before,
+.edit-btn:hover::before,
+.status-btn:hover::before,
+.dashboard-header button:hover::before,
+.entry-card button:hover::before,
+.vehicle-list button:hover::before {
+  left: 120%;
+}
+
+.primary-btn:hover,
+.login-btn:hover,
+.add-btn:hover,
+.update-btn:hover,
+.edit-btn:hover,
+.status-btn:hover,
+.dashboard-header button:hover,
+.entry-card button:hover,
+.vehicle-list button:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.45);
+}
+
+/* ================= INPUTS ================= */
+
+input,
+select,
+textarea {
+  width: 100%;
+
+  padding: 14px 16px;
+
+  border-radius: var(--radius-md);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  background: rgba(255, 255, 255, 0.06);
+
+  color: white;
+
   outline: none;
+
+  transition: var(--transition);
+
+  font-size: 15px;
 }
 
-ul, ol {
-  list-style: none;
+input::placeholder,
+textarea::placeholder {
+  color: #94a3b8;
 }
 
-/* ================= Utility Classes ================= */
-.text-center {
-  text-align: center;
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #38bdf8;
+
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.35);
 }
 
-.flex {
+/* ================= LOGIN PAGE ================= */
+
+.login-wrapper,
+.admin-login-wrapper {
+  min-height: 100vh;
+
   display: flex;
-}
 
-.flex-center {
-  display: flex;
   justify-content: center;
   align-items: center;
+
+  padding: 20px;
+
+  position: relative;
+
+  overflow: hidden;
 }
 
-.mt-1 { margin-top: 0.25rem; }
-.mt-2 { margin-top: 0.5rem; }
-.mt-3 { margin-top: 0.75rem; }
+.login-wrapper::before,
+.login-wrapper::after,
+.admin-login-wrapper::before,
+.admin-login-wrapper::after {
+  content: "";
 
-.mb-1 { margin-bottom: 0.25rem; }
-.mb-2 { margin-bottom: 0.5rem; }
-.mb-3 { margin-bottom: 0.75rem; }
+  position: absolute;
+
+  width: 250px;
+  height: 250px;
+
+  border-radius: 50%;
+
+  filter: blur(90px);
+
+  opacity: 0.45;
+}
+
+.login-wrapper::before,
+.admin-login-wrapper::before {
+  background: #06b6d4;
+
+  top: -60px;
+  left: -60px;
+}
+
+.login-wrapper::after,
+.admin-login-wrapper::after {
+  background: #2563eb;
+
+  bottom: -60px;
+  right: -60px;
+}
+
+.login-card,
+.admin-card {
+  width: 100%;
+  max-width: 420px;
+
+  padding: 40px 30px;
+
+  position: relative;
+
+  z-index: 10;
+
+  animation: fadeUp 0.8s ease;
+}
+
+.login-card h2,
+.title {
+  font-size: 2rem;
+
+  text-align: center;
+
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  text-align: center;
+
+  color: var(--text-secondary);
+
+  margin-bottom: 28px;
+
+  line-height: 1.6;
+}
+
+.form-field {
+  margin-bottom: 18px;
+}
+
+.form-field label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: var(--text-secondary);
+
+  font-weight: 500;
+}
+
+.login-btn {
+  width: 100%;
+}
+
+/* ================= WELCOME PAGE ================= */
+
+.welcome-container {
+  min-height: 100vh;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.welcome-container::before,
+.welcome-container::after {
+  content: "";
+
+  position: absolute;
+
+  width: 250px;
+  height: 250px;
+
+  border-radius: 50%;
+
+  filter: blur(90px);
+
+  opacity: 0.5;
+}
+
+.welcome-container::before {
+  background: #06b6d4;
+
+  top: -50px;
+  left: -50px;
+}
+
+.welcome-container::after {
+  background: #2563eb;
+
+  bottom: -50px;
+  right: -50px;
+}
+
+.welcome-card {
+  width: 100%;
+  max-width: 500px;
+
+  padding: 40px 30px;
+
+  text-align: center;
+
+  position: relative;
+
+  z-index: 10;
+
+  animation: fadeUp 0.8s ease;
+}
+
+.welcome-card h1 {
+  font-size: 1rem;
+
+  letter-spacing: 3px;
+
+  color: #38bdf8;
+
+  margin-bottom: 10px;
+
+  text-transform: uppercase;
+}
+
+.welcome-card h2 {
+  font-size: 2.4rem;
+
+  margin-bottom: 16px;
+
+  line-height: 1.2;
+}
+
+.welcome-card p {
+  color: var(--text-secondary);
+
+  line-height: 1.7;
+
+  margin-bottom: 30px;
+}
+
+.btn-container {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 16px;
+
+  flex-wrap: wrap;
+}
+
+.welcome-btn {
+  min-width: 170px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  padding: 14px 24px;
+
+  border-radius: var(--radius-md);
+
+  background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+
+  color: white;
+
+  font-weight: 600;
+
+  transition: var(--transition);
+}
+
+.welcome-btn:hover {
+  transform: translateY(-4px) scale(1.03);
+
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.45);
+}
+
+/* ================= TABLE PAGES ================= */
+
+.list-container,
+.incharge-wrapper,
+.admin-dashboard-container {
+  min-height: 100vh;
+
+  padding: 24px;
+
+  position: relative;
+}
+
+.list-card,
+.vehicle-table-container,
+.entry-card {
+  padding: 28px;
+
+  animation: fadeUp 0.7s ease;
+}
+
+/* ================= HEADER ================= */
+
+.list-header,
+.dashboard-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 16px;
+
+  flex-wrap: wrap;
+
+  margin-bottom: 24px;
+}
+
+.list-header h1,
+.dashboard-header h1 {
+  font-size: 2rem;
+
+  line-height: 1.2;
+}
+
+/* ================= SEARCH ================= */
+
+.search-bar,
+.search-filter {
+  margin-bottom: 24px;
+}
+
+.search-filter {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+  gap: 14px;
+}
+
+/* ================= TABLE ================= */
+
+.table-container,
+.table-scroll,
+.vehicle-list {
+  overflow-x: auto;
+
+  border-radius: 20px;
+}
+
+.styled-table,
+.vehicle-list table,
+.vehicle-table-container table {
+  width: 100%;
+
+  min-width: 850px;
+
+  border-collapse: collapse;
+}
+
+.styled-table th,
+.vehicle-list th,
+.vehicle-table-container th {
+  background: rgba(255, 255, 255, 0.08);
+
+  color: #38bdf8;
+
+  padding: 18px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+
+  font-size: 13px;
+}
+
+.styled-table td,
+.vehicle-list td,
+.vehicle-table-container td {
+  padding: 16px;
+
+  text-align: center;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+  color: #e2e8f0;
+}
+
+.styled-table tbody tr,
+.vehicle-list tbody tr,
+.vehicle-table-container tbody tr {
+  transition: var(--transition);
+}
+
+.styled-table tbody tr:hover,
+.vehicle-list tbody tr:hover,
+.vehicle-table-container tbody tr:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ================= STATUS ================= */
+
+.status-in {
+  color: var(--success);
+
+  font-weight: 600;
+}
+
+.status-out {
+  color: var(--danger);
+
+  font-weight: 600;
+}
+
+/* ================= MODAL ================= */
+
+.modal-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.6);
+
+  backdrop-filter: blur(6px);
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+
+  z-index: 999;
+}
+
+.modal {
+  width: 100%;
+  max-width: 420px;
+
+  padding: 30px;
+
+  border-radius: 26px;
+
+  background: rgba(15, 23, 42, 0.95);
+
+  backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  animation: fadeUp 0.4s ease;
+}
+
+.modal h2 {
+  margin-bottom: 20px;
+}
+
+.modal-actions {
+  display: flex;
+
+  gap: 12px;
+
+  margin-top: 20px;
+}
+
+.cancel-btn {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Laptop */
+
+@media (max-width: 1200px) {
+  .styled-table,
+  .vehicle-list table,
+  .vehicle-table-container table {
+    min-width: 750px;
+  }
+}
+
+/* Tablet */
+
+@media (max-width: 992px) {
+  .list-header,
+  .dashboard-header {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .search-bar {
+    width: 100%;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .app-container,
+  .list-container,
+  .incharge-wrapper,
+  .admin-dashboard-container {
+    padding: 14px;
+  }
+
+  .welcome-card,
+  .login-card,
+  .admin-card,
+  .list-card,
+  .entry-card,
+  .modal {
+    padding: 22px;
+  }
+
+  .welcome-card h2,
+  .list-header h1,
+  .dashboard-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .styled-table,
+  .vehicle-list table,
+  .vehicle-table-container table {
+    min-width: 650px;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+  }
+
+  .update-btn,
+  .cancel-btn {
+    width: 100%;
+  }
+}
+
+/* Small Mobile */
+
+@media (max-width: 480px) {
+  .welcome-container,
+  .login-wrapper,
+  .admin-login-wrapper {
+    padding: 16px;
+  }
+
+  .welcome-card,
+  .login-card,
+  .admin-card,
+  .list-card {
+    padding: 18px;
+
+    border-radius: 20px;
+  }
+
+  .welcome-card h2,
+  .title,
+  .login-card h2 {
+    font-size: 1.4rem;
+  }
+
+  .welcome-btn,
+  .login-btn,
+  .add-btn,
+  .dashboard-header button {
+    width: 100%;
+  }
+
+  .btn-container {
+    flex-direction: column;
+  }
+
+  input,
+  select,
+  textarea {
+    font-size: 14px;
+  }
+}

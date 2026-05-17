@@ -1,123 +1,292 @@
-/* Wrapper */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* ================= ROOT VARIABLES ================= */
+
+:root {
+  --bg-primary: #0f172a;
+  --bg-secondary: #111827;
+
+  --card-bg: #1e293b;
+
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+
+  --border-color: #334155;
+
+  --radius-lg: 20px;
+  --radius-md: 12px;
+
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+
+  --transition: all 0.3s ease;
+}
+
+/* ================= GLOBAL ================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+
+  background: var(--bg-primary);
+
+  color: var(--text-primary);
+
+  overflow-x: hidden;
+}
+
+/* ================= LOGIN WRAPPER ================= */
+
 .admin-login-wrapper {
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(135deg, #00c6ff, #0072ff);
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  padding: 20px;
-  animation: bgGradient 10s ease infinite;
-}
 
-@keyframes bgGradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-/* Card */
-.admin-card {
-  background: #fff;
-  padding: 40px 30px;
-  border-radius: 20px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
   width: 100%;
-  max-width: 400px;
-  text-align: center;
-  animation: cardEntrance 1s ease;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding: 24px;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(59, 130, 246, 0.08),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(6, 182, 212, 0.06),
+      transparent 25%
+    ),
+    var(--bg-primary);
 }
 
-@keyframes cardEntrance {
-  0% {
-    transform: translateY(-50px);
+/* ================= LOGIN CARD ================= */
+
+.admin-card {
+  width: 100%;
+
+  max-width: 420px;
+
+  background: var(--card-bg);
+
+  border: 1px solid var(--border-color);
+
+  border-radius: var(--radius-lg);
+
+  padding: 36px 30px;
+
+  box-shadow: var(--shadow);
+
+  animation: fadeUp 0.4s ease;
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes fadeUp {
+  from {
     opacity: 0;
+
+    transform: translateY(20px);
   }
-  100% {
-    transform: translateY(0);
+
+  to {
     opacity: 1;
+
+    transform: translateY(0);
   }
 }
 
-/* Title */
+/* ================= TITLE ================= */
+
 .title {
-  font-size: 1.8rem;
+  font-size: 2rem;
+
   font-weight: 700;
-  color: #0072ff;
-  margin-bottom: 6px;
+
+  text-align: center;
+
+  color: var(--text-primary);
+
+  margin-bottom: 10px;
 }
+
+/* ================= SUBTITLE ================= */
 
 .subtitle {
+  text-align: center;
+
+  color: var(--text-secondary);
+
   font-size: 0.95rem;
-  color: #555;
-  margin-bottom: 24px;
-  opacity: 0.85;
+
+  margin-bottom: 28px;
+
+  line-height: 1.5;
 }
 
-/* Form */
+/* ================= FORM ================= */
+
 .admin-form {
   display: flex;
+
   flex-direction: column;
-  gap: 16px;
+
+  gap: 18px;
 }
+
+/* ================= FORM FIELD ================= */
 
 .form-field {
   display: flex;
+
   flex-direction: column;
-  text-align: left;
+
+  gap: 8px;
 }
 
 .form-field label {
-  font-weight: 600;
-  margin-bottom: 6px;
-  color: #0072ff;
+  font-size: 14px;
+
+  font-weight: 500;
+
+  color: var(--text-secondary);
 }
+
+/* ================= INPUT ================= */
 
 .form-field input {
-  padding: 10px 14px;
-  border: 1px solid #ccc;
-  border-radius: 12px;
-  font-size: 15px;
+  width: 100%;
+
+  padding: 14px 16px;
+
+  border-radius: var(--radius-md);
+
+  border: 1px solid var(--border-color);
+
+  background: #0f172a;
+
+  color: white;
+
+  font-size: 14px;
+
   outline: none;
-  transition: all 0.3s ease;
+
+  transition: var(--transition);
 }
+
+.form-field input::placeholder {
+  color: #64748b;
+}
+
+/* ================= INPUT FOCUS ================= */
 
 .form-field input:focus {
-  border-color: #00c6ff;
-  box-shadow: 0 0 10px rgba(0, 198, 255, 0.5);
+  border-color: var(--accent);
 }
 
-/* Button */
+/* ================= LOGIN BUTTON ================= */
+
 .login-btn {
-  padding: 12px;
+  width: 100%;
+
   border: none;
-  border-radius: 12px;
+
+  padding: 14px;
+
+  border-radius: var(--radius-md);
+
+  background: var(--accent);
+
+  color: white;
+
+  font-size: 15px;
+
   font-weight: 600;
-  color: #fff;
-  background: linear-gradient(135deg, #00c6ff, #0072ff);
+
   cursor: pointer;
-  transition:
-    all 0.3s ease,
-    transform 0.2s ease;
-  box-shadow: 0 5px 15px rgba(0, 198, 255, 0.4);
+
+  transition: var(--transition);
+
+  margin-top: 4px;
 }
+
+/* ================= BUTTON HOVER ================= */
 
 .login-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 25px rgba(0, 198, 255, 0.6);
-  color: red;
+  background: var(--accent-hover);
+
+  transform: translateY(-2px);
 }
 
-/* Demo Credentials */
+/* ================= DEMO CREDENTIALS ================= */
+
 .demo-credentials {
-  margin-top: 18px;
+  margin-top: 24px;
+
+  padding-top: 18px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  text-align: center;
+
+  color: var(--text-secondary);
+
   font-size: 0.9rem;
-  color: #555;
-  opacity: 0.85;
+
+  line-height: 1.6;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Tablet */
+
+@media (max-width: 768px) {
+  .admin-card {
+    padding: 30px 24px;
+  }
+
+  .title {
+    font-size: 1.7rem;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+  .admin-login-wrapper {
+    padding: 16px;
+  }
+
+  .admin-card {
+    padding: 24px 18px;
+
+    border-radius: 16px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .form-field input {
+    padding: 13px 14px;
+  }
+
+  .login-btn {
+    padding: 13px;
+  }
 }

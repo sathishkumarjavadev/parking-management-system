@@ -1,107 +1,352 @@
-.incharge-wrapper {
-  padding: 20px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to bottom right, #f0f4f8, #d9e2ec);
-  min-height: 100vh;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* ================= ROOT VARIABLES ================= */
+
+:root {
+  --bg-primary: #0f172a;
+  --bg-secondary: #111827;
+
+  --card-bg: #1e293b;
+
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+
+  --success: #22c55e;
+  --danger: #ef4444;
+
+  --border-color: #334155;
+
+  --radius-lg: 20px;
+  --radius-md: 12px;
+
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+
+  --transition: all 0.3s ease;
 }
+
+/* ================= GLOBAL ================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg-primary);
+
+  font-family: "Poppins", sans-serif;
+
+  color: var(--text-primary);
+
+  overflow-x: hidden;
+}
+
+/* ================= WRAPPER ================= */
+
+.incharge-wrapper {
+  min-height: 100vh;
+
+  width: 100%;
+
+  padding: 24px;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(59, 130, 246, 0.08),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(6, 182, 212, 0.06),
+      transparent 25%
+    ),
+    var(--bg-primary);
+}
+
+/* ================= HEADER ================= */
 
 .dashboard-header {
   display: flex;
+
   justify-content: space-between;
+
   align-items: center;
-  margin-bottom: 20px;
-  padding-left: 80%;
-  width: 100%;
+
+  flex-wrap: wrap;
+
+  gap: 16px;
+
+  margin-bottom: 24px;
 }
 
 .dashboard-header h1 {
-  color: #0f3460;
+  font-size: 2rem;
+
+  font-weight: 700;
+
+  color: var(--text-primary);
 }
 
-.dashboard-header button {
-  padding: 8px 16px;
+/* ================= BUTTON ================= */
+
+.dashboard-header button,
+.entry-card button,
+.vehicle-list button {
   border: none;
-  border-radius: 10px;
-  background-color: #0f3460;
-  color: #fff;
+
+  outline: none;
+
+  padding: 12px 18px;
+
+  border-radius: var(--radius-md);
+
+  background: var(--accent);
+
+  color: white;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
   cursor: pointer;
+
+  transition: var(--transition);
 }
+
+.dashboard-header button:hover,
+.entry-card button:hover,
+.vehicle-list button:hover {
+  background: var(--accent-hover);
+
+  transform: translateY(-2px);
+}
+
+/* ================= ENTRY CARD ================= */
 
 .entry-card {
-  background: #fff;
-  padding: 16px;
-  border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
+  width: 100%;
+
+  background: var(--card-bg);
+
+  border: 1px solid var(--border-color);
+
+  border-radius: var(--radius-lg);
+
+  padding: 24px;
+
+  margin-bottom: 24px;
+
+  box-shadow: var(--shadow);
 }
+
+/* ================= CARD TITLE ================= */
 
 .entry-card h2 {
-  color: #0f3460;
-  margin-bottom: 12px;
+  font-size: 1.5rem;
+
+  margin-bottom: 20px;
+
+  color: var(--text-primary);
 }
+
+/* ================= FORM ================= */
 
 .entry-card form {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+  gap: 16px;
 }
+
+/* ================= INPUT ================= */
 
 .entry-card input {
-  flex: 1 1 200px;
-  padding: 8px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+  width: 100%;
+
+  padding: 14px 16px;
+
+  border-radius: var(--radius-md);
+
+  border: 1px solid var(--border-color);
+
+  background: #0f172a;
+
+  color: white;
+
+  font-size: 14px;
+
+  outline: none;
+
+  transition: var(--transition);
 }
 
-.entry-card button {
-  padding: 8px 16px;
-  border: none;
-  border-radius: 12px;
-  background-color: #0f3460;
-  color: #fff;
-  cursor: pointer;
+.entry-card input::placeholder {
+  color: #64748b;
 }
+
+.entry-card input:focus {
+  border-color: var(--accent);
+}
+
+/* ================= TABLE CARD ================= */
+
+.vehicle-list {
+  width: 100%;
+
+  overflow-x: auto;
+
+  background: var(--card-bg);
+
+  border: 1px solid var(--border-color);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow);
+}
+
+/* ================= TABLE ================= */
 
 .vehicle-list table {
   width: 100%;
+
   border-collapse: collapse;
-  background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+
+  min-width: 850px;
 }
 
-.vehicle-list th,
-.vehicle-list td {
-  padding: 12px;
-  text-align: center;
-  border-bottom: 1px solid #e0e0e0;
-}
+/* ================= TABLE HEAD ================= */
 
 .vehicle-list th {
-  background-color: #0f3460;
-  color: #fff;
+  background: #172033;
+
+  color: #cbd5e1;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.5px;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  padding: 18px;
+
+  text-align: center;
 }
 
+/* ================= TABLE BODY ================= */
+
+.vehicle-list td {
+  padding: 18px 14px;
+
+  text-align: center;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+  color: var(--text-primary);
+
+  font-size: 14px;
+}
+
+/* ================= TABLE ROW ================= */
+
+.vehicle-list tbody tr {
+  transition: var(--transition);
+}
+
+.vehicle-list tbody tr:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* ================= STATUS ================= */
+
 .status-in {
-  color: #2e7d32;
+  color: var(--success);
+
   font-weight: 600;
 }
 
 .status-out {
-  color: #d32f2f;
+  color: var(--danger);
+
   font-weight: 600;
 }
 
-.vehicle-list button {
-  padding: 6px 12px;
-  border-radius: 8px;
-  border: none;
-  background-color: #1976d2;
-  color: #fff;
-  cursor: pointer;
+/* ================= RESPONSIVE ================= */
+
+/* Laptop */
+
+@media (max-width: 1200px) {
+  .incharge-wrapper {
+    padding: 20px;
+  }
 }
 
-.vehicle-list button:hover {
-  background-color: #0d47a1;
+/* Tablet */
+
+@media (max-width: 992px) {
+  .dashboard-header {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .dashboard-header h1 {
+    font-size: 1.7rem;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .incharge-wrapper {
+    padding: 14px;
+  }
+
+  .entry-card {
+    padding: 20px;
+  }
+
+  .entry-card h2 {
+    font-size: 1.3rem;
+  }
+
+  .entry-card form {
+    grid-template-columns: 1fr;
+  }
+
+  .vehicle-list table {
+    min-width: 700px;
+  }
+}
+
+/* Small Mobile */
+
+@media (max-width: 480px) {
+  .dashboard-header {
+    align-items: stretch;
+  }
+
+  .dashboard-header h1 {
+    font-size: 1.4rem;
+  }
+
+  .dashboard-header button,
+  .entry-card button {
+    width: 100%;
+  }
+
+  .entry-card {
+    padding: 18px;
+  }
+
+  .vehicle-list table {
+    min-width: 600px;
+  }
 }

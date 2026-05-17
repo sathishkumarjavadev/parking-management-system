@@ -1,228 +1,490 @@
-/* ================= Wrapper ================= */
-.admin-dashboard-container {
-  min-height: 100vh;
-  padding: 24px;
-  background: linear-gradient(to bottom right, #f0f4f8, #d9e2ec);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #0f3460;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* ================= ROOT VARIABLES ================= */
+
+:root {
+  --bg-primary: #0f172a;
+  --bg-secondary: #111827;
+
+  --card-bg: #1e293b;
+
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+
+  --success: #22c55e;
+  --danger: #ef4444;
+
+  --border-color: #334155;
+
+  --radius-lg: 20px;
+  --radius-md: 12px;
+
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+
+  --transition: all 0.3s ease;
 }
 
-/* ================= Header ================= */
+/* ================= GLOBAL ================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg-primary);
+
+  font-family: "Poppins", sans-serif;
+
+  color: var(--text-primary);
+
+  overflow-x: hidden;
+}
+
+/* ================= SCROLLBAR ================= */
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111827;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 20px;
+}
+
+/* ================= DASHBOARD ================= */
+
+.admin-dashboard-container {
+  min-height: 100vh;
+
+  width: 100%;
+
+  padding: 24px;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(59, 130, 246, 0.08),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(6, 182, 212, 0.06),
+      transparent 25%
+    ),
+    var(--bg-primary);
+}
+
+/* ================= HEADER ================= */
+
 .dashboard-header {
   display: flex;
+
   justify-content: space-between;
+
   align-items: center;
+
+  gap: 16px;
+
+  flex-wrap: wrap;
+
   margin-bottom: 24px;
 }
 
 .dashboard-header h1 {
   font-size: 2rem;
+
   font-weight: 700;
+
+  color: var(--text-primary);
 }
 
-.dashboard-header button {
-  padding: 10px 18px;
+/* ================= BUTTONS ================= */
+
+.btn-primary,
+.btn-danger,
+.btn-secondary {
   border: none;
-  border-radius: 12px;
-  background-color: #0f3460;
-  color: #fff;
+
+  outline: none;
+
+  padding: 12px 18px;
+
+  border-radius: var(--radius-md);
+
+  font-size: 14px;
+
   font-weight: 600;
+
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
+
+  transition: var(--transition);
+
+  color: white;
 }
 
-.dashboard-header button:hover {
-  background-color: #1a5fb4;
-  transform: scale(1.05);
+.btn-primary {
+  background: var(--accent);
 }
 
-/* ================= Search / Filter ================= */
+.btn-primary:hover {
+  background: var(--accent-hover);
+}
+
+.btn-danger {
+  background: var(--danger);
+}
+
+.btn-secondary {
+  background: #334155;
+}
+
+.btn-primary:hover,
+.btn-danger:hover,
+.btn-secondary:hover {
+  transform: translateY(-2px);
+}
+
+/* ================= SEARCH FILTER ================= */
+
 .search-filter {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 16px;
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+  gap: 14px;
+
+  margin-bottom: 24px;
 }
+
+/* ================= INPUTS ================= */
 
 .search-filter input,
-.search-filter select {
-  padding: 10px 14px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  outline: none;
+.search-filter select,
+.modal input {
+  width: 100%;
+
+  padding: 14px 16px;
+
+  border-radius: var(--radius-md);
+
+  border: 1px solid var(--border-color);
+
+  background: #0f172a;
+
+  color: white;
+
   font-size: 14px;
-  transition: all 0.2s ease;
+
+  outline: none;
+
+  transition: var(--transition);
+}
+
+.search-filter input::placeholder,
+.modal input::placeholder {
+  color: var(--text-secondary);
 }
 
 .search-filter input:focus,
-.search-filter select:focus {
-  border-color: #1a5fb4;
-  box-shadow: 0 0 6px rgba(26, 95, 180, 0.3);
+.search-filter select:focus,
+.modal input:focus {
+  border-color: var(--accent);
 }
 
-/* ================= Table ================= */
+/* ================= TABLE CARD ================= */
+
 .vehicle-table-container {
+  width: 100%;
+
+  background: var(--card-bg);
+
+  border-radius: var(--radius-lg);
+
+  border: 1px solid var(--border-color);
+
+  overflow: hidden;
+
+  box-shadow: var(--shadow);
+}
+
+/* ================= TABLE SCROLL ================= */
+
+.table-scroll {
+  width: 100%;
+
   overflow-x: auto;
 }
 
+/* ================= TABLE ================= */
+
 .vehicle-table-container table {
   width: 100%;
+
   border-collapse: collapse;
+
   min-width: 900px;
 }
 
-.vehicle-table-container th,
-.vehicle-table-container td {
-  padding: 12px 16px;
+/* ================= TABLE HEAD ================= */
+
+.vehicle-table-container th {
+  background: #172033;
+
+  color: #cbd5e1;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.5px;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  padding: 18px;
+
   text-align: center;
-  border-bottom: 1px solid #e0e0e0;
+}
+
+/* ================= TABLE BODY ================= */
+
+.vehicle-table-container td {
+  padding: 18px 14px;
+
+  text-align: center;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+  color: var(--text-primary);
+
   font-size: 14px;
 }
 
-.vehicle-table-container th {
-  background-color: #0f3460;
-  color: #fff;
-  font-weight: 600;
+/* ================= TABLE ROW ================= */
+
+.vehicle-table-container tbody tr {
+  transition: var(--transition);
 }
 
 .vehicle-table-container tbody tr:hover {
-  background-color: #f1f5f9;
+  background: rgba(255, 255, 255, 0.03);
 }
 
-/* ================= Status ================= */
+/* ================= STATUS ================= */
+
 .status-in {
-  color: #2e7d32;
+  color: var(--success);
+
   font-weight: 600;
 }
 
 .status-out {
-  color: #d32f2f;
+  color: var(--danger);
+
   font-weight: 600;
 }
 
-/* ================= Live Timer ================= */
+/* ================= TIMER ================= */
+
 .live-timer {
   display: flex;
+
   flex-direction: column;
+
   align-items: center;
-  font-size: 0.9rem;
+
+  gap: 3px;
 }
 
 .live-timer small {
-  margin-top: 2px;
-  color: #0f3460;
+  color: var(--text-secondary);
 }
 
-/* ================= Buttons ================= */
+/* ================= ACTION BUTTONS ================= */
+
 .vehicle-table-container button {
-  padding: 6px 12px;
   border: none;
-  border-radius: 8px;
+
+  padding: 8px 12px;
+
+  border-radius: 10px;
+
+  font-size: 13px;
+
   font-weight: 600;
+
   cursor: pointer;
+
+  transition: var(--transition);
+
+  color: white;
+
   margin: 2px;
-  transition: all 0.3s ease;
 }
 
 .vehicle-table-container button:hover {
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
-.vehicle-table-container button:first-child {
-  background-color: #1976d2;
-  color: #fff;
-}
+/* ================= MODAL OVERLAY ================= */
 
-.vehicle-table-container button:last-child {
-  background-color: #d32f2f;
-  color: #fff;
-}
-
-/* ================= Modal ================= */
 .modal-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.4);
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.65);
+
   display: flex;
+
   justify-content: center;
+
   align-items: center;
+
+  padding: 20px;
+
   z-index: 1000;
 }
 
+/* ================= MODAL ================= */
+
 .modal {
-  background-color: #fff;
-  padding: 24px 28px;
-  border-radius: 16px;
   width: 100%;
-  max-width: 400px;
-  text-align: center;
+
+  max-width: 420px;
+
+  background: var(--bg-secondary);
+
+  border-radius: var(--radius-lg);
+
+  border: 1px solid var(--border-color);
+
+  padding: 28px;
+
+  animation: modalFade 0.3s ease;
 }
+
+@keyframes modalFade {
+  from {
+    opacity: 0;
+
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+/* ================= MODAL TITLE ================= */
 
 .modal h2 {
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: #0f3460;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+
+  font-size: 1.5rem;
+
+  color: white;
 }
 
-.modal input {
-  width: 100%;
-  padding: 10px 14px;
-  margin-bottom: 12px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  font-size: 15px;
-  outline: none;
-  transition: all 0.2s ease;
+/* ================= MODAL ACTIONS ================= */
+
+.modal-actions {
+  display: flex;
+
+  gap: 12px;
+
+  margin-top: 12px;
 }
 
-.modal input:focus {
-  border-color: #1a5fb4;
-  box-shadow: 0 0 6px rgba(26, 95, 180, 0.3);
+/* ================= RESPONSIVE ================= */
+
+/* Laptop */
+
+@media (max-width: 1200px) {
+  .admin-dashboard-container {
+    padding: 20px;
+  }
 }
 
-.modal button {
-  padding: 10px 16px;
-  border: none;
-  border-radius: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  margin: 6px 0;
-  width: 48%;
+/* Tablet */
+
+@media (max-width: 992px) {
+  .dashboard-header {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .dashboard-header h1 {
+    font-size: 1.7rem;
+  }
 }
 
-.modal button:first-child {
-  background-color: #0f3460;
-  color: #fff;
-}
+/* Mobile */
 
-.modal button:first-child:hover {
-  background-color: #1a5fb4;
-}
-
-.modal button:last-child {
-  background-color: #d32f2f;
-  color: #fff;
-}
-
-.modal button:last-child:hover {
-  background-color: #b71c1c;
-}
-
-/* ================= Responsive ================= */
 @media (max-width: 768px) {
+  .admin-dashboard-container {
+    padding: 14px;
+  }
+
+  .search-filter {
+    grid-template-columns: 1fr;
+  }
+
+  .vehicle-table-container table {
+    min-width: 700px;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+  }
+
+  .modal-actions button {
+    width: 100%;
+  }
+
+  .modal {
+    padding: 22px;
+  }
+}
+
+/* Small Mobile */
+
+@media (max-width: 480px) {
+  .dashboard-header {
+    align-items: stretch;
+  }
+
+  .dashboard-header h1 {
+    font-size: 1.4rem;
+  }
+
+  .btn-primary,
+  .btn-danger,
+  .btn-secondary {
+    width: 100%;
+  }
+
   .vehicle-table-container table {
     min-width: 600px;
   }
 
-  .search-filter {
-    flex-direction: column;
-  }
-
-  .modal button {
-    width: 100%;
+  .modal {
+    padding: 18px;
   }
 }
